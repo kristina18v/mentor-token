@@ -1,0 +1,165 @@
+
+.page {
+  --purple: #6962ff;
+  width: 100%;
+  min-width: 0;
+  min-height: 100svh;
+  flex: 1;
+  background: #fff;
+  color: #242424;
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.page > nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  width: min(100% - 64px, 1240px);
+  min-height: 116px;
+  margin: 0 auto;
+}
+.page > nav > a,
+.page > footer h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--purple);
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -1.3px;
+  white-space: nowrap;
+}
+.page > nav > a::before,
+.page > footer h3::before {
+  content: "";
+  flex: 0 0 30px;
+  height: 34px;
+  background:
+    linear-gradient(30deg, transparent 42%, #fff 44% 49%, transparent 51%) 0 0 / 50% 100%,
+    linear-gradient(-30deg, transparent 42%, #fff 44% 49%, transparent 51%) 100% 0 / 50% 100%,
+    radial-gradient(circle, var(--purple) 0 3px, #fff 3px 6px, transparent 6px),
+    var(--purple);
+  background-repeat: no-repeat;
+  clip-path: polygon(50% 0, 96% 25%, 96% 75%, 50% 100%, 4% 75%, 4% 25%);
+}
+.page > nav > div { display: flex; align-items: center; gap: 40px; }
+.page > nav a { font-size: 18px; }
+.page > nav > a { font-size: 30px; }
+.page > nav > div:last-child { gap: 26px; }
+.page > nav a[href="/auth/register"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 52px;
+  padding: 0 26px;
+  border-radius: 9px;
+  background: var(--purple);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+.page > nav a[href="/auth/register"]::before { content: "\2192"; font-size: 23px; }
+.page > footer {
+  display: grid;
+  grid-template-columns: 1.5fr .7fr 1.05fr 1fr;
+  align-content: center;
+  gap: 24px 60px;
+  min-height: 456px;
+  padding: 80px max(32px, calc((100% - 1200px) / 2));
+  background: #222;
+  color: #f7f7f7;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.page > footer h3 { margin: 0 0 28px; }
+.page > footer h3::before {
+  background:
+    linear-gradient(30deg, transparent 42%, #222 44% 49%, transparent 51%) 0 0 / 50% 100%,
+    linear-gradient(-30deg, transparent 42%, #222 44% 49%, transparent 51%) 100% 0 / 50% 100%,
+    radial-gradient(circle, var(--purple) 0 3px, #222 3px 6px, transparent 6px),
+    var(--purple);
+  background-repeat: no-repeat;
+}
+.page > footer h4 { margin: 9px 0 28px; font-size: 18px; font-weight: 600; }
+.page > footer div:first-child p { max-width: 285px; }
+.page > footer a { display: block; width: fit-content; margin-bottom: 18px; }
+.page > footer div:nth-child(3) p + p { margin-top: 18px; }
+.page > footer div:last-of-type { display: flex; flex-wrap: wrap; align-content: start; gap: 0 14px; }
+.page > footer div:last-of-type h4 { width: 100%; }
+.page > footer span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 10px;
+  border: 1px solid var(--purple);
+  border-radius: 18px;
+  color: var(--purple);
+  font-size: 12px;
+}
+.page > footer > p {
+  grid-column: 1 / -1;
+  padding-top: 20px;
+  border-top: 1px solid #969696;
+}
+.page :is(a, button, input, textarea):focus-visible { outline: 2px solid var(--purple); outline-offset: 4px; }
+.page button { cursor: pointer; font-family: inherit; }
+.page a:hover { color: var(--purple); }
+.page > nav a[href="/auth/register"]:hover { background: #5952ed; color: #fff; }
+@media (max-width: 1000px) {
+  .page > nav { gap: 20px; }
+  .page > nav > a { font-size: 24px; }
+  .page > nav > div { gap: 20px; }
+  .page > nav a { font-size: 15px; }
+  .page > footer { grid-template-columns: 1.4fr 1fr; gap: 32px 48px; }
+}
+@media (max-width: 600px) {
+  .page > nav { width: calc(100% - 32px); flex-wrap: wrap; gap: 20px 12px; padding: 22px 0; }
+  .page > nav > a { font-size: 21px; gap: 5px; }
+  .page > nav > a::before { flex-basis: 24px; height: 28px; }
+  .page > nav > div:nth-child(2) { order: 3; width: 100%; justify-content: center; gap: 36px; }
+  .page > nav > div:last-child { gap: 12px; }
+  .page > nav a { font-size: 13px; }
+  .page > nav a[href="/auth/register"] { min-height: 40px; padding: 0 12px; gap: 8px; font-size: 12px; }
+  .page > footer { grid-template-columns: 1fr 1fr; gap: 28px 20px; padding: 48px 24px; font-size: 14px; }
+  .page > footer > div:first-child { grid-column: 1 / -1; }
+  .page > footer h3 { font-size: 26px; }
+  .page > footer h4 { font-size: 16px; margin-bottom: 20px; }
+  .page > footer div:last-of-type { grid-column: 1 / -1; }
+}
+
+.page > nav > div:nth-child(2) > a[href="/about"] { color: var(--purple); }
+.hero { width: min(100% - 40px, 1400px); min-height: 386px; margin: 0 auto; padding: 88px 40px 64px; border-radius: 20px; background: 
+    linear-gradient(130deg, transparent 0 28%, #ffffff70 28% 61%, transparent 61%),
+    linear-gradient(18deg, #efefef 0 21%, transparent 21%),
+    linear-gradient(145deg, #fafafa 0 38%, #f1f1f1 38% 64%, #fbfbfb 64% 100%)
+; text-align: center; }
+.hero h1 { font-size: 50px; line-height: 1.2; font-weight: 700; letter-spacing: -.8px; }
+.hero p { max-width: 900px; margin: 40px auto 30px; font-size: 19px; line-height: 1.5; }
+.hero > a { display: inline-flex; align-items: center; justify-content: center; gap: 16px; min-height: 52px; padding: 0 26px; border-radius: 8px; background: var(--purple); color: #fff; font-size: 16px; }
+.hero > a::before { content: "\2192"; font-size: 23px; }
+.hero > a:hover { background: #5952ed; }
+.team { display: flex; flex-wrap: wrap; justify-content: center; align-content: start; gap: 60px 24px; width: min(100% - 160px, 1160px); min-height: 1048px; margin: 0 auto; padding: 160px 0 120px; }
+.member { flex: 0 0 calc((100% - 72px) / 4); min-width: 0; padding: 0 0 24px; text-align: center; }
+.member::before { content: ""; display: block; width: 126px; height: 126px; margin: 0 auto 38px; border-radius: 50%; background: radial-gradient(circle at 50% 36%, #c9cadb 0 22px, transparent 23px), radial-gradient(ellipse at 50% 102%, #c9cadb 0 49px, transparent 50px), #f0f0f5; }
+.member h2 { overflow-wrap: anywhere; font-size: 23px; line-height: 1.3; font-weight: 700; letter-spacing: -.5px; }
+.member > p { margin-top: 10px; color: var(--purple); font-size: 18px; line-height: 1.5; }
+.message, .error { width: 100%; padding: 24px; border-radius: 12px; background: #f7f7fc; color: #65728a; text-align: center; line-height: 1.5; }
+.error { color: #c14362; background: #fff2f5; }
+@media (max-width: 1000px) {
+  .hero h1 { font-size: 42px; }
+  .team { width: calc(100% - 80px); padding-top: 110px; }
+  .member { flex-basis: calc((100% - 24px) / 2); }
+}
+@media (max-width: 600px) {
+  .hero { width: calc(100% - 32px); min-height: 0; padding: 48px 24px; }
+  .hero h1 { font-size: 34px; }
+  .hero p { margin: 24px auto; font-size: 16px; }
+  .team { width: calc(100% - 48px); min-height: 480px; padding: 64px 0; gap: 44px 16px; }
+  .member { flex-basis: calc((100% - 16px) / 2); }
+  .member::before { width: 98px; height: 98px; margin-bottom: 24px; background: radial-gradient(circle at 50% 36%, #c9cadb 0 17px, transparent 18px), radial-gradient(ellipse at 50% 102%, #c9cadb 0 38px, transparent 39px), #f0f0f5; }
+  .member h2 { font-size: 18px; }
+  .member > p { font-size: 15px; }
+}
